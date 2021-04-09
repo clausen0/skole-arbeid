@@ -30,7 +30,9 @@ class Player(pygame.sprite.Sprite):  # spiller klasse
         pygame.sprite.Sprite.__init__(self)
         self.images = []
 
-        img = pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
+        #img = pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
+        img = pygame.image.load(os.path.join(
+            currentPath + 'images', 'hero.png')).convert()
         self.images.append(img)
         self.image = self.images[0]
         self.rect = self.image.get_rect()
@@ -47,8 +49,8 @@ pygame.init()
 screen = pygame.display.set_mode((1200, 650))
 
 player = Player
-player.rect.x = 0
-player.rect.y = 0
+# player.rect = 0
+#player.rect = 0
 player_list = pygame.sprite.Group()
 player_list.add(player)
 
